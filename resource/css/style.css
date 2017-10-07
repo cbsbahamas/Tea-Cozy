@@ -9,46 +9,55 @@ body {
 }
 
 header {
-  position: fixed;
+  position: fixed; /* hold position despite scroll */
+  top: 0; /* anchor postion of header */
   height: 69px;
   border-bottom: 1px solid seashell;
-  width: 100%;
-  align-items: center;
-  z-index: 1;
+  width: 100%; /* take up full width of browser viewport */
+  align-items: center; /* center navigator and img vertically in header */
+  z-index: 5; /* set z-index. since z-index for other element default to 0 header will be on top */
+  }
+
+.block-container { /* container for sections of the page */
+  width: 1200px;
+  margin: auto; /* auto center block-container */
+  position: relative; /* along with "top" property, causes a section to be positioned relative to it's original position, i.e. 69px from top to avoid overlay of header */
+  padding-top: 69px;
 }
 
-.flex-box {
-  display: flex;
-  justify-content: center;
+.flex-container {
+  display: flex; /* enable fex container magic */
+  justify-content: center; /* centers items base on the main axis of the repective container */
 }
 
 .navigator {
-  flex-grow: 1;
-  text-align: right;
+  flex-grow: 1; /* grows the navigator size of the header to fill empty space when the header is resized */
+  text-align: right; /* align to right of the space reserved for nav */
+}
+
+nav a {
+  color: seashell;
 }
 
 .logo {
   margin-left: 10px;
 }
 
-.logo img {
-  height: 50;
-}
-
-#mission
-.flex-box {
-  width: 1200px;
-  margin: auto;
-  padding-top: 169px;
+#mission {
   height: 700px;
-  flex-direction: column;
-  background-position: bottom;
-  background-image: url("../image/img-mission-background.jpg");
-  background-repeat: no-repeat;
 }
 
 #mission
-.flex-box
+.flex-container {
+  flex-direction: column; /*change main axis of flex-container to column */
+  background-image: url("../image/img-mission-background.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 100%; /* fill respective block-container */
+}
+
+#mission
+.flex-container
 .text-content {
   background-color: black;
   width: 100%;
@@ -56,10 +65,10 @@ header {
 }
 
 #featured
-.flex-box {
+.flex-container {
   width: 1000px;
   margin: auto;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* flex-items onto other rows if necessary */
 }
 
 #featured img {
@@ -71,4 +80,39 @@ header {
 #featured
 h4 {
   margin: 0px;
+}
+
+#locations {
+  height: 500px;
+  background-image: url("../image/img-locations-background.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+#locations
+.flex-container {
+  height: 300px;
+  width: 980px;
+  margin: auto;
+}
+
+.address {
+  border: 1px solid seashell;
+  background-color: black;
+  flex: 1;
+  max-width: 300px;
+  opacity: 1;
+  margin: auto;
+}
+
+footer
+.flex-container {
+    flex-basis: 200px;
+    flex-direction: column;
+}
+
+footer
+.left-align {
+  text-align: left;
+  margin-left: 20px;
 }
