@@ -16,6 +16,7 @@ header {
   width: 100%; /* take up full width of browser viewport */
   align-items: center; /* center navigator and img vertically in header */
   z-index: 5; /* set z-index. since z-index for other element default to 0 header will be on top */
+  background-color: black;
   }
 
 .block-container { /* container for sections of the page */
